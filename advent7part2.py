@@ -2,7 +2,7 @@ f = open("advent7.txt", "r")
 data = f.read() 
 lst = data.split("\n") 
 f.close() 
-#destination source range
+
 
 
 def getValue(x):
@@ -11,7 +11,6 @@ def getValue(x):
         cardsdict[i] = 0
     betList = []
     first = []
-    temp = 0
     bet = 0
     value = 0
     p = True
@@ -71,8 +70,6 @@ def getValue(x):
             value = 10**jokes*100000
         else:
             value = 10**(len(str(value))-1 + jokes) + value - 10**(len(str(value))-1)
-                
-
     if jokes == 5:
         value = 1000000000
     
@@ -85,9 +82,7 @@ valuelst = []
 for i in lst:
     valuelst.append((getValue(i)["value"], getValue(i)["bet"]))
 
-print(valuelst)
 list.sort(valuelst)
-
 scores = 0
 for i in range(len(valuelst)):
     scores += valuelst[i][1] * (i+1)
